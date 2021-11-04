@@ -1,0 +1,4 @@
+Synth:
+    Gen1 = Gen( Wave = Sine)
+    LFO1 = LFO(Freq = 10, Wave = Sine)
+    LFO1 -> Gen1.Freq
