@@ -49,7 +49,7 @@ void watcher::run()
 		//start java process
 		//parse languages into json 
 		if (changed) {
-			printf("change occured, editing files to reflect");
+			printf("change occured, editing files to reflect\n");
 			std::string path_to_parser = ".\\AntlrSynthGrammar\\bin\\AntlrSynthGrammar.bat";
 			std::string path_to_output = "C:\\Users\\thorf\\source\\repos\\SDL2_synth\\SDL2_synth\\new_params.json";
 			std::string process = path_to_parser + " " + saved_path + " " + path_to_output;
@@ -57,7 +57,7 @@ void watcher::run()
 
 			rpc::client client("127.0.0.1", 8080);
 			client.call("reload");
-			printf("RPC reload call sent");
+			printf("RPC reload call sent\n");
 		}
 		changed = false;
 		std::this_thread::sleep_for(std::chrono::seconds(3));
