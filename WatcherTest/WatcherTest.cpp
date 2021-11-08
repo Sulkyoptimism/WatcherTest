@@ -26,7 +26,12 @@ int main()
 	//bool join2 = false; 
 
 	watcher watch = watcher(watch_path);
-	//timerengine timer;
+	timerengine timer;
+
+	timer.setup("127.0.0.1", 8080);
+	timer.set_bpm(120);
+	std::vector<int> temp_notes = { 38, 42, 50, 38 };
+	timer.add_notes(temp_notes);
 
 	std::thread watch_thread(&watcher::start, watch);
 	//std::thread timer_thread(&timerengine::run, timer);

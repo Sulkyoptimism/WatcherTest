@@ -49,15 +49,21 @@ void watcher::run()
 		//start java process
 		//parse languages into json 
 		if (changed) {
-			printf("change occured, editing files to reflect\n");
-			std::string path_to_parser = ".\\AntlrSynthGrammar\\bin\\AntlrSynthGrammar.bat";
-			std::string path_to_output = "C:\\Users\\thorf\\source\\repos\\SDL2_synth\\SDL2_synth\\new_params.json";
-			std::string process = path_to_parser + " " + saved_path + " " + path_to_output;
-			system(process.c_str());
+			if (saved_path.substr(saved_path.find_last_of(".") + 1) == "syn") {
+				printf("change occured, editing files to reflect\n");
+				std::string path_to_parser = ".\\AntlrSynthGrammar\\bin\\AntlrSynthGrammar.bat";
+				std::string path_to_output = "C:\\Users\\thorf\\source\\repos\\SDL2_synth\\SDL2_synth\\new_params.json";
+				std::string process = path_to_parser + " " + saved_path + " " + path_to_output;
+				system(process.c_str());
 
-			rpc::client client("127.0.0.1", 8080);
-			client.call("reload");
-			printf("RPC reload call sent\n");
+				rpc::client client("127.0.0.1", 8080);
+				client.call("reload");
+				printf("RPC reload call sent\n");
+			}
+			else if (saved_path.substr(saved_path.find_last_of(".") + 1) == "alda") {
+				//alda parser java
+			}
+
 		}
 		changed = false;
 		std::this_thread::sleep_for(std::chrono::seconds(3));

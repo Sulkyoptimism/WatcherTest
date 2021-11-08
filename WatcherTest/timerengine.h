@@ -9,16 +9,18 @@ public:
 	int l_port = 8080;
 
 	std::vector<int> notes;
-	int note_count = 0;
+	int note_max_num = 0;
+	int note_counter = 0;
 
 	int bpm = 60;
-	int period = 60 / bpm;
+	double beat_period = 60 / bpm;
+	double quart_period = beat_period / 4;
+	int q_period_milli = quart_period * 1000;
 
 	void setup(std::string addr, int port);	
 	void set_bpm(int bpm);
 	void add_notes(std::vector<int> notes);
 	void run();
-	void pulse();
 
 };
 
