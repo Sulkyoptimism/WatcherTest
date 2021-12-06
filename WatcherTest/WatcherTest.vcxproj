@@ -146,7 +146,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="message.cpp" />
     <ClCompile Include="RPCtransport.cpp" />
     <ClCompile Include="timerengine.cpp" />
     <ClCompile Include="watcher.cpp" />
@@ -837,21 +836,33 @@
     <ClInclude Include="include\rpc\this_server.h" />
     <ClInclude Include="include\rpc\this_session.h" />
     <ClInclude Include="include\rpc\version.h" />
-    <ClInclude Include="message.h" />
     <ClInclude Include="RPCtransport.h" />
     <ClInclude Include="timerengine.h" />
     <ClInclude Include="watcher.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="test.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Library Include="lib\rpc.lib" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AntlrAldaParser\bin\AntlrAldaProduction" />
+    <None Include="AntlrAldaParser\bin\AntlrAldaProduction.bat" />
+    <None Include="AntlrAldaParser\lib\accessors-smart-1.1.jar" />
+    <None Include="AntlrAldaParser\lib\antlr-runtime-3.5.2.jar" />
+    <None Include="AntlrAldaParser\lib\antlr4-4.9.2.jar" />
+    <None Include="AntlrAldaParser\lib\antlr4-runtime-4.9.2.jar" />
+    <None Include="AntlrAldaParser\lib\AntlrAldaProduction.jar" />
+    <None Include="AntlrAldaParser\lib\asm-5.0.3.jar" />
+    <None Include="AntlrAldaParser\lib\icu4j-61.1.jar" />
+    <None Include="AntlrAldaParser\lib\javax.json-1.0.4.jar" />
+    <None Include="AntlrAldaParser\lib\json-path-2.1.0.jar" />
+    <None Include="AntlrAldaParser\lib\json-smart-2.2.jar" />
+    <None Include="AntlrAldaParser\lib\org.abego.treelayout.core-1.0.3.jar" />
+    <None Include="AntlrAldaParser\lib\slf4j-api-1.7.13.jar" />
+    <None Include="AntlrAldaParser\lib\ST4-4.3.jar" />
     <None Include="include\rpc\client.inl" />
     <None Include="include\rpc\dispatcher.inl" />
     <None Include="include\rpc\this_handler.inl" />
+    <None Include="OutputFiles\Aldaout.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

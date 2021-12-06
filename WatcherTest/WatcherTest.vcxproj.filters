@@ -18,9 +18,6 @@
     <ClCompile Include="WatcherTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="message.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RPCtransport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -33,9 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dep\FileWatch.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="message.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RPCtransport.h">
@@ -2098,9 +2092,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="test.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Library Include="lib\rpc.lib" />
   </ItemGroup>
   <ItemGroup>
@@ -2113,5 +2104,23 @@
     <None Include="include\rpc\this_handler.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="AntlrAldaParser\lib\ST4-4.3.jar" />
+    <None Include="AntlrAldaParser\bin\AntlrAldaProduction" />
+    <None Include="AntlrAldaParser\bin\AntlrAldaProduction.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="AntlrAldaParser\lib\accessors-smart-1.1.jar" />
+    <None Include="AntlrAldaParser\lib\antlr4-4.9.2.jar" />
+    <None Include="AntlrAldaParser\lib\antlr4-runtime-4.9.2.jar" />
+    <None Include="AntlrAldaParser\lib\AntlrAldaProduction.jar" />
+    <None Include="AntlrAldaParser\lib\antlr-runtime-3.5.2.jar" />
+    <None Include="AntlrAldaParser\lib\asm-5.0.3.jar" />
+    <None Include="AntlrAldaParser\lib\icu4j-61.1.jar" />
+    <None Include="AntlrAldaParser\lib\javax.json-1.0.4.jar" />
+    <None Include="AntlrAldaParser\lib\json-path-2.1.0.jar" />
+    <None Include="AntlrAldaParser\lib\json-smart-2.2.jar" />
+    <None Include="AntlrAldaParser\lib\org.abego.treelayout.core-1.0.3.jar" />
+    <None Include="AntlrAldaParser\lib\slf4j-api-1.7.13.jar" />
+    <None Include="OutputFiles\Aldaout.json" />
   </ItemGroup>
 </Project>

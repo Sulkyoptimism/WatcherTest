@@ -19,9 +19,11 @@ class watcher
 public:
 	bool changed = false;
 	std::string saved_path = "";
+	std::string output_path = "";
+	bool alda_input = false;
+	watcher(std::string str_path);
+	std::thread thread_process(bool* alda_bool);
 
-
-	watcher(std::string path);
 	std::wstring ConvertUtf8ToWide(const std::string& str);
 	void start();
 	void restart();
@@ -29,7 +31,7 @@ public:
 
 
 private:
-	void run();
+	void run(bool* alda_bool);
 	bool quit = false;
 
 
