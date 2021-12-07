@@ -6,17 +6,70 @@
 #include <string>
 #include <chrono>
 #include <thread>
-
+#include <filesystem>
+#include <locale>
+#include <codecvt>
 #include "watcher.h"
 #include "include/rpc/client.h"
 #include "timerengine.h"
 
 using namespace std::string_literals;
 
+
+VOID startup(LPCTSTR lpApplicationName)
+{
+	// additional information
+	STARTUPINFO si;
+	PROCESS_INFORMATION pi;
+
+	// set the size of the structures
+	ZeroMemory(&si, sizeof(si));
+	si.cb = sizeof(si);
+	ZeroMemory(&pi, sizeof(pi));
+
+	// start the program up
+	CreateProcess(lpApplicationName,   // the path
+		NULL,        // Command line
+		NULL,           // Process handle not inheritable
+		NULL,           // Thread handle not inheritable
+		FALSE,          // Set handle inheritance to FALSE
+		0,              // No creation flags
+		NULL,           // Use parent's environment block
+		NULL,           // Use parent's starting directory 
+		&si,            // Pointer to STARTUPINFO structure
+		&pi             // Pointer to PROCESS_INFORMATION structure (removed extra parentheses)
+	);
+	// Close process and thread handles. 
+	CloseHandle(pi.hProcess);
+	CloseHandle(pi.hThread);
+}
+
+std::wstring ExePath() {
+	TCHAR buffer[MAX_PATH] = { 0 };
+	GetModuleFileName(NULL, buffer, MAX_PATH);
+	std::wstring::size_type pos = std::wstring(buffer).find_last_of(L"\\/");
+	return std::wstring(buffer).substr(0, pos);
+}
+
 int main()
 {
+	////start synth
+	////std::wcout << "my directory is " << ExePath() << "\n";
+	//std::wstring string_to_convert = ExePath();
 
-	//std::string watch_path = "C:\\Users\\thorf\\source\\repos\\WatcherTest\\WatcherTest\\test\\test.txt";
+	////setup converter
+	//using convert_type = std::codecvt_utf8<wchar_t>;
+	//std::wstring_convert<convert_type, wchar_t> converter;
+
+	////use converter (.to_bytes: wstr->str, .from_bytes: str->wstr)
+	//std::string converted_str = converter.to_bytes(string_to_convert);
+	//std::wstring wpro = ExePath() + L"\\Synth\\SDL2_synth.exe"s;
+	//LPCTSTR process = wpro.c_str();
+	////system(process.c_str());
+
+	//LPCTSTR process_ = L"\\Synth\\SDL2_synth.exe";
+	//startup(process);
+	////std::string watch_path = "C:\\Users\\thorf\\source\\repos\\WatcherTest\\WatcherTest\\test\\test.txt";
 	std::string syn_watch_path = ".\\InputFiles\\synthexample.syn";
 	std::string alda_watch_path = ".\\InputFiles\\aldaexample.alda";
 
